@@ -50,6 +50,27 @@ created controlplane.yaml
 
 created worker.yaml
 
+aws_launch_template.auto-scaling-group has changed
+~ resource "aws_launch_template" "auto-scaling-group" {
+  + description             = "test-terraform"
+    id                      = "lt-0a5ef2ae49a80f01b"
+  ~ instance_type           = "t2.micro" -> "t2.nano"
+  ~ latest_version          = 1 -> 2
+    name                    = "auto-scaling-group20240429124429746800000001"
+  + security_group_names    = []
+  + tags                    = {}
+  + vpc_security_group_ids  = []
+    # (8 unchanged attributes hidden)
+
+  ~ network_interfaces {
+      + ipv4_addresses     = []
+      + ipv4_prefixes      = []
+      + ipv6_addresses     = []
+      + ipv6_prefixes      = []
+        # (8 unchanged attributes hidden)
+    }
+}
+
 created talosconfig
 The port used above should be 6443 unless your load balancing card is different from port 6443 on the control plane.
 Validate the Arrangement Files
