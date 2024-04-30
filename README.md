@@ -18,9 +18,10 @@ Here are a few key highlights and viewpoints of Talos:
 Ease to Manage: Talos provides flight control and control throughout the flight. It includes tools like talosctl for hub control, rendering, and other cluster components.
 
 **Creating Talos clusters with Equinix Metal:**
+
 We can create the Talos Linux cluster on Equinix Metal in various ways, for example through the EM web interface  or the metal networking tool.
 
-Below are the process:
+**Below are the process:**
 
 1. Create DNS entries on your Kubernetes endpoint.
 2. Create configuration using talosctl.
