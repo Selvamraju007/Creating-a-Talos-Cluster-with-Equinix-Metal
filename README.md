@@ -4,7 +4,7 @@
 
 Talos is a frame designed for Kubernetes. The expectation is that this will be as minimal as possible while preserving practical functionality.
 
-Here are a few key highlights and viewpoints of Talos:
+**Here are a few key highlights and viewpoints of Talos:**
 
 **Kubernetes-Native**: Talos is Kubernetes-native, meaning it integrates well with Kubernetes concepts. It removes standard Linux components and offers the Kubernetes experience.
 
