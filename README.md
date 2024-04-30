@@ -1,6 +1,7 @@
 # Creating-a-Talos-Cluster-with-Equinix-Metal
 
 **What is Talos?**
+
 Talos is a frame designed for Kubernetes. The expectation is that this will be as minimal as possible while preserving practical functionality.
 
 Here are a few key highlights and viewpoints of Talos:
