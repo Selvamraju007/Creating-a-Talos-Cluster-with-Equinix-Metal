@@ -29,6 +29,7 @@ Below are the process:
 6. Bootstrap the cluster.
    
 **Define the Kubernetes Endpoint:**
+
 There are several ways to create an HA endpoint for a Kubernetes cluster. Some ways are:
 
 * DNS
