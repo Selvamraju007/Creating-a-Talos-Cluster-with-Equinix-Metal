@@ -44,21 +44,21 @@ We do not know the control plane IP address of this program, but we need to spec
 
 Create a basic script to identify Talos machines using the DNS header of the load balancer shown above:
 
-$ talosctl gen config talos-k8s-em-tutorial https://<load balancer IP or DNS>:<port>
+'''$ talosctl gen config talos-k8s-em-tutorial https://<load balancer IP or DNS>:<port>
 
 created controlplane.yaml
 
 created worker.yaml
 
-created talosconfig
+created talosconfig'''
 
 The port used above should be 6443 unless your load balancing card is different from port 6443 on the control plane.
 
 **Validate the Arrangement Files**
 
-talosctl validate --config controlplane.yaml --mode metal
+'''talosctl validate --config controlplane.yaml --mode metal
 
-talosctl validate --config worker.yaml --mode metal
+talosctl validate --config worker.yaml --mode metal'''
 
 **Provision the machines in Equinix Metal**
 
@@ -72,25 +72,25 @@ You can update this by preparing to run different types of flight control machin
 
 If you have not set the machine as client data, you must pass it to each machine with the following command:
 
-talosctl apply-config --insecure --nodes <Node IP> --file ./controlplane.yaml
+'''talosctl apply-config --insecure --nodes <Node IP> --file ./controlplane.yaml'''
 
 **Update the Kubernetes endpoint**
 
 Now that our control planes are created and we know their IP addresses, we can connect them to the Kubernetes endpoint. Configure your load balancer to perform operations on these hubs or finally add records to your DNS servers for each control plane.
 host endpoint.mydomain.com
 
-endpoint.mydomain.com has address 145.40.90.201
+'''endpoint.mydomain.com has address 145.40.90.201
 
 endpoint.mydomain.com has address 147.75.109.71
 
-endpoint.mydomain.com has address 145.40.90.177
+endpoint.mydomain.com has address 145.40.90.177'''
 
 **Bootstrap Etcd**
 
 Set the endpoints and nodes for talosctl:
-talosctl --talosconfig talosconfig config endpoint <control plane 1 IP>
+'''talosctl --talosconfig talosconfig config endpoint <control plane 1 IP>
 
-talosctl --talosconfig talosconfig config node <control plane 1 IP>
+talosctl --talosconfig talosconfig config node <control plane 1 IP>'''
 
 **Bootstrap etcd:**
-talosctl --talosconfig talosconfig bootstrap
+'''talosctl --talosconfig talosconfig bootstrap'''
