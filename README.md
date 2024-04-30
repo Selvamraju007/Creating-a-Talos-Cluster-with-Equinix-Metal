@@ -50,42 +50,32 @@ created controlplane.yaml
 
 created worker.yaml
 
-aws_launch_template.auto-scaling-group has changed
-~ resource "aws_launch_template" "auto-scaling-group" {
-  + description             = "test-terraform"
-    id                      = "lt-0a5ef2ae49a80f01b"
-  ~ instance_type           = "t2.micro" -> "t2.nano"
-  ~ latest_version          = 1 -> 2
-    name                    = "auto-scaling-group20240429124429746800000001"
-  + security_group_names    = []
-  + tags                    = {}
-  + vpc_security_group_ids  = []
-    # (8 unchanged attributes hidden)
-
-  ~ network_interfaces {
-      + ipv4_addresses     = []
-      + ipv4_prefixes      = []
-      + ipv6_addresses     = []
-      + ipv6_prefixes      = []
-        # (8 unchanged attributes hidden)
-    }
-}
-
 created talosconfig
+
 The port used above should be 6443 unless your load balancing card is different from port 6443 on the control plane.
-Validate the Arrangement Files
+
+**Validate the Arrangement Files**
+
 talosctl validate --config controlplane.yaml --mode metal
 
 talosctl validate --config worker.yaml --mode metal
-Provision the machines in Equinix Metal
+
+**Provision the machines in Equinix Metal**
+
 Talos Linux can install PXE on an Equinix network using Image Factory using the EquinixMetal class: e.g. https://pxe.factory.talos.dev/pxe/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba/v1.7.0/equinixMetal-amd64 (this URL references the default schematic and amd64 architecture).
-Using the Equinix Metal UI
-Simply select the region and machine type from the 
-Equinix Metal web interface. Select 'Custom iPXE' as the task and enter the PXE image URL as the IPXE URL. Then select the number of servers to run and give them a name (in lowercase letters). You can also connect the control plane under normal conditions. use the yaml file created above (make sure to add one at the beginning of the #!talos line).
+
+**Using the Equinix Metal UI**
+
+Simply select the region and machine type from the Equinix Metal web interface. Select 'Custom iPXE' as the task and enter the PXE image URL as the IPXE URL. Then select the number of servers to run and give them a name (in lowercase letters). You can also connect the control plane under normal conditions. use the yaml file created above (make sure to add one at the beginning of the #!talos line).
+
 You can update this by preparing to run different types of flight control machines and custom hubs (even if you pass worker.yaml to the worker node like client data).
+
 If you have not set the machine as client data, you must pass it to each machine with the following command:
+
 talosctl apply-config --insecure --nodes <Node IP> --file ./controlplane.yaml
-Update the Kubernetes endpoint
+
+**Update the Kubernetes endpoint**
+
 Now that our control planes are created and we know their IP addresses, we can connect them to the Kubernetes endpoint. Configure your load balancer to perform operations on these hubs or finally add records to your DNS servers for each control plane.
 host endpoint.mydomain.com
 
@@ -94,10 +84,13 @@ endpoint.mydomain.com has address 145.40.90.201
 endpoint.mydomain.com has address 147.75.109.71
 
 endpoint.mydomain.com has address 145.40.90.177
-Bootstrap Etcd
+
+**Bootstrap Etcd**
+
 Set the endpoints and nodes for talosctl:
 talosctl --talosconfig talosconfig config endpoint <control plane 1 IP>
 
 talosctl --talosconfig talosconfig config node <control plane 1 IP>
-Bootstrap etcd:
+
+**Bootstrap etcd:**
 talosctl --talosconfig talosconfig bootstrap
