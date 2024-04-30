@@ -32,7 +32,9 @@ Below are the process:
 There are several ways to create an HA endpoint for a Kubernetes cluster. Some ways are:
 
 DNS
+
 Load Balancer
+
 BGP
 
 Whichever method is chosen must result in an IP address/DNS mapping session for all control plane operations.
