@@ -34,10 +34,9 @@ The simplest method to test Talos is to set up a cluster on a computer running D
 **talosctl**
 
 Download talosctl (macOS or Linux):
-
 ```
 curl -sL https://talos.dev/install | sh
-'''
+```
 
 **kubectl**
 
