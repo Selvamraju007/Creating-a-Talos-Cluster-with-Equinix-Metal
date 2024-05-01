@@ -37,7 +37,6 @@ Download talosctl (macOS or Linux):
 
 ```
 curl -sL https://talos.dev/install | sh
-
 '''
 
 **kubectl**
@@ -50,7 +49,6 @@ Run the below command for cluster creation
 
 ```
 talosctl cluster create
-
 ```
 
 Note: If you are using Docker Desktop on a macOS computer you will need to enable the default Docker socket in your settings.
@@ -70,8 +68,7 @@ NAME                           STATUS   ROLES    AGE    VERSION          INTERNA
 
 talos-default-controlplane-1   Ready    master   115s   v1.30.0   10.5.0.2      <none>        Talos (v1.7.0)   <host kernel>    containerd://1.5.5
 
-talos-default-worker-1         Ready    <none>   115s   v1.30.0   10.5.0.3      <none>        Talos (v1.7.0)   <host kernel>    containerd://1.5.5
-
+talos-default-worker-1         Ready    <none>   115s   v1.30.0   10.5.0.3      <none>        Talos (v1.7.0)   <host kernel>   containerd://1.5.5
 ```
 **Destroy the Cluster**
 
@@ -79,7 +76,6 @@ When you are all done, remove the cluster:
 
 ```
 talosctl cluster destroy
-
 ```
 
 That's it for the quick and simplest Kubernetes cluster setup for testing purpose.
