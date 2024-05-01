@@ -87,9 +87,9 @@ We can create the Talos Linux cluster on Equinix Metal in various ways, for exam
 
 **Below are the process:**
 
-1. Create DNS entries on your Kubernetes endpoint.
-2. Create configuration using talosctl.
-3. Provision your machines on Equinix Metal.
+1. Create DNS entries on your Kubernetes endpoint (This should be created in local machine).
+2. Create configuration using talosctl (This should be created in local machine).
+3. Provision your machines on Equinix Metal [Dashboard](https://console.equinix.com/authorize).
 4. Upload the program to your server (if it is not running as part of the distribution machine).
 5. Configure your Kubernetes endpoint to point to the recently made control plane nodes.
 6. Bootstrap the cluster.
