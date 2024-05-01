@@ -40,7 +40,7 @@ curl -sL https://talos.dev/install | sh
 
 **kubectl**
 
-Download kubectl and install via one of methods in the documentation.
+Download kubectl and install via one of methods in the [documentation](https://kubernetes.io/docs/tasks/tools/) .
 
 **Create the Cluster**
 
